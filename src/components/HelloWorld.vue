@@ -1,6 +1,6 @@
 <template>
-  <h1>{{ msg }}</h1>
-  <h2>{{ store.user.name }}</h2>
+  <h1>{{ props.msg }}</h1>
+  <h2>{{ user.name }}</h2>
 
   <div class="card">
     <button type="button" @click="count++">count is {{ count }}</button>
@@ -26,9 +26,9 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useStore } from '@/store/main'
-const store = useStore()
-defineProps<{ msg: string }>()
+import { useMain } from '@/composables/useMain';
+const props = defineProps<{ msg: string }>()
+const { user } = useMain()
 
 const count = ref(0)
 </script>

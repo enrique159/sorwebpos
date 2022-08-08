@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
-import type { MainState } from '@/types/MainState'
+import type { MainState } from '@/types/MainState.type'
 
-export const useStore = defineStore('main', {
+export const useMainStore = defineStore('main', {
   state: (): MainState => ({
     counter: 0,
     user: {
