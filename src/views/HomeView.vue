@@ -1,6 +1,7 @@
 <template>
   <div>
-    <HelloWorld msg="Hola"></HelloWorld>
+    <HelloWorld msg="Sor web app"></HelloWorld>
+    <el-button>I am ElButton</el-button>
   </div>
 </template>
 
