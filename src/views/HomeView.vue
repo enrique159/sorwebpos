@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <h1>Hola</h1>
-  </div>
+  <v-container>
+    <h1>Home</h1>
+  </v-container>
 </template>
 
 <script setup lang="ts">
