@@ -9,6 +9,9 @@ export const useOrderStore = defineStore('order', {
   getters: {
     total: (state) => state.order.reduce((acc, item) => acc + item.item.price, 0),
     getOrder: (state) => state.order,
+    getSubtotal: (state) => () => {
+      return state.order.reduce((acc, item) => acc + item.item.price * item.quantity, 0)
+    }
   },
   actions: {
     add(item: Product) {

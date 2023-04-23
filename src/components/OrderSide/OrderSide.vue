@@ -36,13 +36,79 @@
         </div>
       </div>
     </section>
+
+    <section class="checkout">
+      <div>
+        <div class="d-flex justify-between mb-2">
+          <span class="tc-text-light ts-b4">Subtotal</span>
+          <span class="tc-text ts-b4">{{ getSubtotal }}</span>
+        </div>
+        <div class="d-flex justify-between mb-2">
+          <span class="tc-text-light ts-b4">Descuento</span>
+          <span class="tc-text ts-b4">$ 0.00</span>
+        </div>
+        <div class="divider mb-2"></div>
+        <div class="d-flex justify-between">
+          <span class="tc-text-light ts-b4">Total</span>
+          <span class="tc-text ts-b4">{{ getSubtotal }}</span>
+        </div>
+      </div>
+
+      <div class="payment">
+        <span class="ts-b5 tc-text-dark">Métodos de pago</span>
+        <div class="d-flex justify-between align-center pt-2">
+          <div class="d-flex flex-column align-center">
+            <v-btn
+              class="bg-black-2 bc-black-3"
+              :class="{ 'bg-white-3 bc-white-3': selectedPayMethod === 'cash', }"
+              variant="outlined"
+              @click="selectPaymentMethod('cash')"
+            >
+              <i class="ri-coins-fill ts-b3" :class="[ selectedPayMethod === 'cash' ? 'tc-black-1' : 'tc-white-2']"></i>
+            </v-btn>
+            <span class="ts-b5 tc-text-light">Efectivo</span>
+          </div>
+
+          <div class="d-flex flex-column align-center">
+            <v-btn
+              class="bg-black-2 bc-black-3"
+              :class="{ 'bg-white-3 bc-white-3': selectedPayMethod === 'card', }"
+              variant="outlined"
+              @click="selectPaymentMethod('card')"
+            >
+              <i class="ri-bank-card-fill ts-b3" :class="[ selectedPayMethod === 'card' ? 'tc-black-1' : 'tc-white-2']"></i>
+            </v-btn>
+            <span class="ts-b5 tc-text-light">Tarjeta</span>
+          </div>
+
+          <div class="d-flex flex-column align-center">
+            <v-btn
+              class="bg-black-2 bc-black-3"
+              :class="{ 'bg-white-3 bc-white-3': selectedPayMethod === 'codi', }"
+              variant="outlined"
+              @click="selectPaymentMethod('codi')"
+            >
+              <i class="ri-qr-code-fill ts-b3" :class="[ selectedPayMethod === 'codi' ? 'tc-black-1' : 'tc-white-2']"></i>
+            </v-btn>
+            <span class="ts-b5 tc-text-light">CoDi</span>
+          </div>
+        </div>
+        <div class="d-flex pt-4">
+          <v-btn rounded="xl" class="bg-white-3" elevation="0" :disabled="isOrderEmpty" style="width: 100%;">
+            <span class="tc-black-2 ts-b4" style="letter-spacing: 0; text-transform: capitalize;">Pagar Orden</span>
+          </v-btn>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 
 <script setup lang="ts">
 import { useOrder } from "@/composables/useOrder";
-import { computed } from "vue";
+import { computed, ref } from "vue";
 const { order, removeEntireItem } = useOrder();
+
+type PaymentMethod = "cash" | "card" | "codi" | null;
 
 const getTotalPrice = (price: number, quantity: number) => {
   const totalPrice = price * quantity;
@@ -63,6 +129,19 @@ const getTotalPrice = (price: number, quantity: number) => {
     .replace(regex, ",")}.${priceStringFixed}`;
 };
 
+const getSubtotal = computed(() => {
+  let subtotal = 0;
+  order.value.forEach((item) => {
+    subtotal += item.item.price * item.quantity;
+  });
+  return getTotalPrice(subtotal, 1);
+});
+
+const isOrderEmpty = computed(() => {
+  return order.value.length === 0;
+});
+
+// drag and drop
 const startDragging = () => {
   console.log("start dragging");
 };
@@ -71,6 +150,12 @@ const leftDragging = () => {
   console.log("left dragging");
 };
 
+// Payment method
+const selectedPayMethod = ref<PaymentMethod>('cash');
+
+const selectPaymentMethod = (method: PaymentMethod) => {
+  selectedPayMethod.value = method;
+};
 </script>
 
 <style lang="scss" scoped>
@@ -100,6 +185,7 @@ const leftDragging = () => {
     max-height: 400px;
     padding: 0.3rem;
     overflow-y: auto;
+    margin-bottom: 1rem;
 
     .list-product-item {
       display: flex;
@@ -138,6 +224,20 @@ const leftDragging = () => {
           align-items: center;
         }
       }
+    }
+  }
+
+  .checkout {
+    height: 100%;
+    background-color: $color-black-2;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .divider {
+      border-bottom: 1px dashed $color-black-3;
     }
   }
 }
