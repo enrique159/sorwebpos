@@ -1,18 +1,26 @@
 import { createWebHistory, createRouter } from "vue-router";
+// LAYOUTS
+import DefaultLayout from "@/layouts/DefaultLayout.vue";
+// VIEWS
 import Home from "@/views/HomeView.vue";
 import EntriesSale from "@/views/EntriesSale.vue";
-//import About from "@/views/About.vue";
 
 const routes = [
   {
     path: "/",
-    name: "Home",
-    component: Home,
-  },
-  {
-    path: "/entries-sale",
-    name: "EntriesSale",
-    component: EntriesSale,
+    component: DefaultLayout,
+    children: [
+      {
+        path: "/",
+        name: "Home",
+        component: Home,
+      },
+      {
+        path: "/entries-sale",
+        name: "EntriesSale",
+        component: EntriesSale,
+      }
+    ]
   }
 ];
 

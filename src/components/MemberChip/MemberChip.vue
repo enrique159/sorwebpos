@@ -41,6 +41,11 @@ const firstLetter = computed(() => name[0].toUpperCase());
       color: rgba($color: #000000, $alpha: 0.6);
     }
   }
+
+  &:hover {
+    background: $color-black-2;
+    cursor: pointer;
+  }
 }
 
 .selected {

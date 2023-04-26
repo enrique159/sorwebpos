@@ -11,27 +11,20 @@
       </div>
 
       <div class="menu">
-        <router-link to="/" class="menu-item" :class="{ active: currentRoute.toString() === '/' }">
-          <span class="ts-b4 tw-medium" :class="[currentRoute.toString() === '/' ? 'tc-text' : 'tc-text-dark']">
-            Inicio
-          </span>
-        </router-link>
-
-        <router-link to="/" class="menu-item" :class="{ active: currentRoute.toString() === '/' }">
-          <span class="ts-b4 tw-medium" :class="[currentRoute.toString() === '/' ? 'tc-text' : 'tc-text-dark']">
-            Reservaciones
-          </span>
-        </router-link>
-
-        <router-link to="/entries-sale" class="menu-item" :class="{ active: currentRoute.toString() === '/entries-sale' }">
-          <span class="ts-b4 tw-medium" :class="[currentRoute.toString() === '/entries-sale' ? 'tc-text' : 'tc-text-light']">
-            Punto de venta
-          </span>
-        </router-link>
-
-        <router-link to="/" class="menu-item" :class="{ active: currentRoute.toString() === '/' }">
-          <span class="ts-b4 tw-medium" :class="[currentRoute.toString() === '/' ? 'tc-text' : 'tc-text-dark']">
-            Configuración
+        <router-link
+          v-for="(item, index) in routes"
+          :key="item.name"
+          :to="item.path"
+          class="menu-item"
+          :class="{ active: currentRoute.toString() === item.path }"
+        >
+          <span
+            class="ts-b4 tw-medium"
+            :class="[
+              currentRoute.toString() === item.path ? 'tc-text' : 'tc-text-dark',
+            ]"
+          >
+            {{ item.name }}
           </span>
         </router-link>
       </div>
@@ -39,7 +32,7 @@
 
     <section class="downside-section">
       <div class="team-in-turn mb-8">
-        <member-chip color="purple" name="Alfonso R." :selected="true" />
+        <member-chip color="purple" name="Alfonso R."/>
         <member-chip color="green" name="Cameron W." />
         <member-chip color="yellow" name="Jose H." />
       </div>
@@ -50,9 +43,16 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, reactive } from "vue";
 import { useRoute } from "vue-router";
 import MemberChip from "@/components/MemberChip/MemberChip.vue";
+
+const routes = reactive([
+  { name: "Inicio", path: "/" },
+  { name: "Reservaciones", path: "/reservations" },
+  { name: "Punto de venta", path: "/entries-sale" },
+  { name: "Configuración", path: "/settings" },
+]);
 
 const route = useRoute();
 const currentRoute = computed(() => route.path);

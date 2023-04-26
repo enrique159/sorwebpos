@@ -1,8 +1,5 @@
 <template>
   <div class="entries-sale-view">
-    <!-- SIDEBAR LEFT -->
-    <SideBar class="sidebar-grid" />
-
     <!-- BODY -->
     <section class="body-grid body">
       <v-container fluid class="mb-6">
@@ -42,7 +39,6 @@
 </template>
 
 <script setup lang="ts">
-import SideBar from '@/components/SideBar/SideBar.vue'
 import OrderSide from '@/components/OrderSide/OrderSide.vue'
 import Categories from '@/components/Categories/Categories.vue'
 import Products from '@/components/Products/Products.vue'
@@ -55,9 +51,9 @@ import { Splitpanes, Pane } from 'splitpanes'
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-columns: 240px 1fr 300px;
+  grid-template-columns: 1fr 300px;
   grid-template-rows: 1fr;
-  grid-template-areas: 'sidebar body checkout';
+  grid-template-areas: 'body checkout';
 
   .sidebar-grid {
     grid-area: sidebar;
