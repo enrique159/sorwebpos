@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <h1>Home</h1>
+    <h4>Página en proceso, ingresa a Punto de Venta</h4>
   </v-container>
 </template>
 

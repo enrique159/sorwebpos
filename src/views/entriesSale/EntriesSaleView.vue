@@ -11,8 +11,6 @@
         </v-row>
       </v-container>
 
-
-     
       <splitpanes class="default-theme splitter" horizontal>
         <pane min-size="20" :push-other-panes="false">
            <Categories />
@@ -23,13 +21,7 @@
       </splitpanes>
 
       <div class="footer">
-        <v-container fluid>
-          <v-row>
-            <v-col cols="12" class="text-center">
-              <span class="ts-b3 tc-text-dark">Total: $ 0.00</span>
-            </v-col>
-          </v-row>
-        </v-container>
+        <ActiveOrders />
       </div>
     </section>
 
@@ -42,6 +34,7 @@
 import OrderSide from '@/components/OrderSide/OrderSide.vue'
 import Categories from '@/components/Categories/Categories.vue'
 import Products from '@/components/Products/Products.vue'
+import ActiveOrders from '@/views/entriesSale/components/ActiveOrders.vue'
 // @ts-ignore
 import { Splitpanes, Pane } from 'splitpanes'
 </script>
@@ -72,7 +65,7 @@ import { Splitpanes, Pane } from 'splitpanes'
     padding: 1.5rem 0.5rem;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 80px 1fr 50px;
+    grid-template-rows: 80px 1fr 100px;
     grid-template-areas:
       'search'
       'splitter'
