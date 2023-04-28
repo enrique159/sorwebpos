@@ -110,7 +110,7 @@ input {
 
 /* Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
-  width: 5px;
+  width: 3px;
 }
 
 *::-webkit-scrollbar-track {
@@ -118,6 +118,6 @@ input {
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: $color-white-3;
+  background-color: $color-black-3;
   border-radius: 10px;
 }

@@ -1,18 +1,33 @@
 <template>
-  <div class="active-orders">
-    <div class="order"
-      v-for="order in activeOrders"
-      :key="order.id"
-    >
-      <div class="table">
-        <span>{{ order.table }}</span>
+  <div class="pt-2" style="height: 100%;">
+    <div class="active-orders">
+      <div class="order"
+        v-for="order in activeOrders"
+        :key="order.id"
+      >
+        <div class="table">
+          <span>{{ order.table }}</span>
+        </div>
+        <div class="d-flex flex-column pl-2">
+          <span class="tc-text ts-b3 tw-semi-bold">{{ order.waiter }}</span>
+          <span class="tc-text-light ts-b4 tw-medium">
+            {{ order.items }} items <i class="ri-arrow-right-line mx-1"></i> Kitchen
+          </span>
+        </div>
+        <v-chip 
+          size="x-small" 
+          class="status"
+          :style="`background-color: ${getStatusColor(order.status)}`"
+        >
+          {{ order.status.toLowerCase() }}
+        </v-chip>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { reactive } from "vue";
+import { reactive, computed } from "vue";
 import { OrderStatus } from '@/types/Order.type'
 
 const activeOrders = reactive([
@@ -38,6 +53,19 @@ const activeOrders = reactive([
     status: OrderStatus.PROCESSING,
   }
 ])
+
+const getStatusColor = (status: OrderStatus) => {
+  switch (status) {
+    case OrderStatus.PROCESSING:
+      return '$color-success'
+    case OrderStatus.PENDING:
+      return '$color-black-3'
+    case OrderStatus.DELIVERED:
+      return '$color-info'
+    default:
+      return '$color-black-3'
+  }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -48,5 +76,34 @@ const activeOrders = reactive([
   display: grid;
   grid-auto-flow: column;
   grid-template-columns: repeat(autofill, minmax(200px, 1fr)); 
+
+  .order {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    border-right: 1px solid $color-black-3;
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+    &:last-child {
+      border-right: none;
+    }
+
+    .table {
+      background-color: $color-black-3;
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 0.6rem;
+    }
+
+    .status {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+    }
+  }
 }
 </style>

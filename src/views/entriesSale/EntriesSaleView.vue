@@ -62,7 +62,7 @@ import { Splitpanes, Pane } from 'splitpanes'
 
   .body {
     height: 100vh;
-    padding: 1.5rem 0.5rem;
+    padding: 1.5rem 0.5rem 0;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 80px 1fr 100px;
