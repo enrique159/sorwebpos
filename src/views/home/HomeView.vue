@@ -5,4 +5,7 @@
 </template>
 
 <script setup lang="ts">
+import { useMetaTitle } from '@/composables/useMetaTitle'
+const { setMeta } = useMetaTitle()
+setMeta('Titles.Home')
 </script>

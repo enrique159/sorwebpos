@@ -39,7 +39,7 @@
 <script setup lang="ts">
 import type { Product } from "@/types/Product.type";
 import { ref, computed, watch } from "vue";
-import { useOrder } from "@/composables/useOrder";
+import { useOrder } from "@/composables/stores/useOrder";
 
 const { product, color } = defineProps<{ product: Product; color: string }>();
 

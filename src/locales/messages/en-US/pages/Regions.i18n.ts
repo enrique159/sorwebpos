@@ -1,0 +1,28 @@
+export default {
+  Regions: {
+    mainTitle: "Regions",
+    mainSubTitle: "Group of countries for societies",
+    newRegion: "New Region",
+    editRegion: "Update Region",
+    lblSearch: "SEARCH",
+    fieldName: "Name",
+    fieldAllowTags: "Allow tags",
+    fieldDenyTags: "Deny tags",
+    status: "Status",
+    deleteMsgConfirm: "Are you sure you want to remove the region {region}?",
+    delete: "delete",
+    deleteMsgDescription: "To confirm the deletion of this region, type 'delete' in the box.",
+    deleteRegion: "Delete Region",
+    form: {
+      lblName: "Name of the region*",
+      lblAllowTags: "Allow tags*",
+      lblDenyTags: "Deny Tags*",
+      lblActiveRegion: "Is it an active region?*",
+      optActive: "Active",
+      optInactive: "Inactive",
+      btnUpdateRegion: "Update Region",
+      btnCreateRegion: "Add new Region",
+      btnDeleteRegion: "Delete Region",
+    },
+  },
+}

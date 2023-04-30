@@ -104,7 +104,7 @@
 </template>
 
 <script setup lang="ts">
-import { useOrder } from "@/composables/useOrder";
+import { useOrder } from "@/composables/stores/useOrder";
 import { computed, ref } from "vue";
 const { order, removeEntireItem } = useOrder();
 

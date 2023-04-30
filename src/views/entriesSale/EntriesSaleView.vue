@@ -5,15 +5,15 @@
       <v-container fluid class="mb-6">
         <v-row>
           <div class="search-input">
-            <i class="ri-search-line ts-b2 tc-text-dark"></i>
-            <input type="text" placeholder="Search" />
+            <i class="ri-search-line ts-b2 tc-text-dark" />
+            <input type="text" placeholder="Search">
           </div>
         </v-row>
       </v-container>
 
       <splitpanes class="default-theme splitter" horizontal>
         <pane min-size="20" :push-other-panes="false">
-           <Categories />
+          <Categories />
         </pane>
         <pane min-size="20" :push-other-panes="false">
           <Products />
@@ -35,8 +35,12 @@ import OrderSide from '@/components/OrderSide/OrderSide.vue'
 import Categories from '@/components/Categories/Categories.vue'
 import Products from '@/components/Products/Products.vue'
 import ActiveOrders from '@/views/entriesSale/components/ActiveOrders.vue'
+import { useMetaTitle } from '@/composables/useMetaTitle'
 // @ts-ignore
 import { Splitpanes, Pane } from 'splitpanes'
+
+const { setMeta } = useMetaTitle()
+setMeta('Titles.EntriesSale')
 </script>
 
 <style lang="scss" scoped>
