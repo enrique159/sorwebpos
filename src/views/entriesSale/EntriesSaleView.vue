@@ -31,9 +31,9 @@
 </template>
 
 <script setup lang="ts">
-import OrderSide from '@/components/OrderSide/OrderSide.vue'
-import Categories from '@/components/Categories/Categories.vue'
-import Products from '@/components/Products/Products.vue'
+import OrderSide from './components/OrderSide.vue'
+import Categories from '@/views/entriesSale/components/Categories/Categories.vue'
+import Products from '@/views/entriesSale/components/Products/Products.vue'
 import ActiveOrders from '@/views/entriesSale/components/ActiveOrders.vue'
 import { useMetaTitle } from '@/composables/useMetaTitle'
 // @ts-ignore
@@ -84,6 +84,7 @@ setMeta('Titles.EntriesSale')
       gap: 0.5rem;
       border-radius: 0.5rem;
       input {
+        width: 100%;
         border: none;
         background: transparent;
         outline: none;

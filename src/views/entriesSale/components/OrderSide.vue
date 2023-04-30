@@ -10,17 +10,15 @@
         size="small"
         class="bg-black-3 d-flex justify-center align-center"
       >
-        <i class="ri-edit-line tc-white-3 ts-b2" style="margin-top: -3px"></i>
+        <i class="ri-edit-line tc-white-3 ts-b2 mt-n1" />
       </v-btn>
     </section>
 
-    <section class="list-products">
+    <section class="list-products" v-if="!isOrderEmpty">
       <div
         class="list-product-item"
         v-for="(item, index) in order"
         :key="`product-list-${index}`"
-        @mousedown="startDragging()"
-        @mouseup="leftDragging()"
         @click="removeEntireItem(item.item)"
       >
         <div class="product-info">
@@ -37,6 +35,14 @@
       </div>
     </section>
 
+    <div v-else class="image-empty-order">
+      <img src="@/assets/icons/OrderEmpty.svg" alt="Order Empty" class="mb-4">
+      <span class="ts-b3 tw-bold tc-text-light">No hay productos</span>
+      <p class="ts-b4 tc-text-dark">
+        Agregue productos para ver la order
+      </p>
+    </div>
+
     <section class="checkout">
       <div>
         <div class="d-flex justify-between mb-2">
@@ -47,7 +53,7 @@
           <span class="tc-text-light ts-b4">Descuento</span>
           <span class="tc-text ts-b4">$ 0.00</span>
         </div>
-        <div class="divider mb-2"></div>
+        <div class="divider mb-2" />
         <div class="d-flex justify-between">
           <span class="tc-text-light ts-b4">Total</span>
           <span class="tc-text ts-b4">{{ getSubtotal }}</span>
@@ -64,7 +70,7 @@
               variant="outlined"
               @click="selectPaymentMethod('cash')"
             >
-              <i class="ri-coins-fill ts-b3" :class="[ selectedPayMethod === 'cash' ? 'tc-black-1' : 'tc-white-2']"></i>
+              <i class="ri-coins-fill ts-b3" :class="[ selectedPayMethod === 'cash' ? 'tc-black-1' : 'tc-white-2']" />
             </v-btn>
             <span class="ts-b5 tc-text-light">Efectivo</span>
           </div>
@@ -76,7 +82,7 @@
               variant="outlined"
               @click="selectPaymentMethod('card')"
             >
-              <i class="ri-bank-card-fill ts-b3" :class="[ selectedPayMethod === 'card' ? 'tc-black-1' : 'tc-white-2']"></i>
+              <i class="ri-bank-card-fill ts-b3" :class="[ selectedPayMethod === 'card' ? 'tc-black-1' : 'tc-white-2']" />
             </v-btn>
             <span class="ts-b5 tc-text-light">Tarjeta</span>
           </div>
@@ -88,14 +94,14 @@
               variant="outlined"
               @click="selectPaymentMethod('codi')"
             >
-              <i class="ri-qr-code-fill ts-b3" :class="[ selectedPayMethod === 'codi' ? 'tc-black-1' : 'tc-white-2']"></i>
+              <i class="ri-qr-code-fill ts-b3" :class="[ selectedPayMethod === 'codi' ? 'tc-black-1' : 'tc-white-2']" />
             </v-btn>
             <span class="ts-b5 tc-text-light">CoDi</span>
           </div>
         </div>
         <div class="d-flex pt-4">
-          <v-btn rounded="xl" class="bg-white-3" elevation="0" :disabled="isOrderEmpty" style="width: 100%;">
-            <span class="tc-black-2 ts-b4" style="letter-spacing: 0; text-transform: capitalize;">Pagar Orden</span>
+          <v-btn rounded="xl" class="bg-white-3 w-100" elevation="0" :disabled="isOrderEmpty">
+            <span class="tc-black-2 ts-b4 text-capitalize ls-0">Pagar Orden</span>
           </v-btn>
         </div>
       </div>
@@ -104,58 +110,58 @@
 </template>
 
 <script setup lang="ts">
-import { useOrder } from "@/composables/stores/useOrder";
-import { computed, ref } from "vue";
-const { order, removeEntireItem } = useOrder();
+import { useOrder } from "@/composables/stores/useOrder"
+import { computed, ref } from "vue"
+const { order, removeEntireItem } = useOrder()
 
-type PaymentMethod = "cash" | "card" | "codi" | null;
+type PaymentMethod = "cash" | "card" | "codi" | null
 
 const getTotalPrice = (price: number, quantity: number) => {
-  const totalPrice = price * quantity;
+  const totalPrice = price * quantity
   // convert to decimal if it's an enteger
   if (Number.isInteger(totalPrice)) {
-    return `$${totalPrice}.00`;
+    return `$${totalPrice}.00`
   }
-  const regex = /\B(?=(\d{3})+(?!\d))/g;
+  const regex = /\B(?=(\d{3})+(?!\d))/g
   if (totalPrice.toString().split(".")[1]?.length === 1) {
-    return `$${totalPrice.toString().replace(regex, ",")}0`;
+    return `$${totalPrice.toString().replace(regex, ",")}0`
   }
   // only show 2 decimals if it's a float
-  const priceString = totalPrice.toString().split(".")[1];
-  const priceStringFixed = priceString?.slice(0, 2);
+  const priceString = totalPrice.toString().split(".")[1]
+  const priceStringFixed = priceString?.slice(0, 2)
   return `$${totalPrice
     .toString()
     .split(".")[0]
-    .replace(regex, ",")}.${priceStringFixed}`;
-};
+    .replace(regex, ",")}.${priceStringFixed}`
+}
 
 const getSubtotal = computed(() => {
-  let subtotal = 0;
+  let subtotal = 0
   order.value.forEach((item) => {
-    subtotal += item.item.price * item.quantity;
-  });
-  return getTotalPrice(subtotal, 1);
-});
+    subtotal += item.item.price * item.quantity
+  })
+  return getTotalPrice(subtotal, 1)
+})
 
 const isOrderEmpty = computed(() => {
-  return order.value.length === 0;
-});
+  return order.value.length === 0
+})
 
 // drag and drop
-const startDragging = () => {
-  console.log("start dragging");
-};
+// const startDragging = () => {
+//   console.log("start dragging")
+// }
 
-const leftDragging = () => {
-  console.log("left dragging");
-};
+// const leftDragging = () => {
+//   console.log("left dragging")
+// }
 
 // Payment method
-const selectedPayMethod = ref<PaymentMethod>('cash');
+const selectedPayMethod = ref<PaymentMethod>('cash')
 
 const selectPaymentMethod = (method: PaymentMethod) => {
-  selectedPayMethod.value = method;
-};
+  selectedPayMethod.value = method
+}
 </script>
 
 <style lang="scss" scoped>
@@ -224,6 +230,24 @@ const selectPaymentMethod = (method: PaymentMethod) => {
           align-items: center;
         }
       }
+    }
+  }
+
+  .image-empty-order {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    max-height: 400px;
+    margin-bottom: 1rem;
+
+    img {
+      width: 100%;
+      max-width: 128px;
+      object-fit: contain;
+      opacity: 0.5;
     }
   }
 

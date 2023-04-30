@@ -4,7 +4,7 @@
       <div class="logo mb-5 pl-3">
         <router-link to="/">
           <span class="ts-b2 tw-semi-bold">
-            <i class="ri-instance-fill tc-text-dark"></i>
+            <i class="ri-instance-fill tc-text-dark" />
             Sor <b>POS</b>
           </span>
         </router-link>
@@ -12,7 +12,7 @@
 
       <div class="menu">
         <router-link
-          v-for="(item, index) in routes"
+          v-for="(item) in routes"
           :key="item.name"
           :to="item.path"
           class="menu-item"
@@ -24,7 +24,7 @@
               currentRoute.toString() === item.path ? 'tc-text' : 'tc-text-dark',
             ]"
           >
-            {{ item.name }}
+            {{ $t(item.name) }}
           </span>
         </router-link>
       </div>
@@ -32,30 +32,39 @@
 
     <section class="downside-section">
       <div class="team-in-turn mb-8">
-        <member-chip color="purple" name="Alfonso R."/>
+        <member-chip color="purple" name="Alfonso R." />
         <member-chip color="green" name="Cameron W." />
         <member-chip color="yellow" name="Jose H." />
       </div>
 
-      <span class="ts-b5 tc-black-4">@ 2023 Sor Pos App</span>
+      <v-row>
+        <v-col cols="8" class="pt-0 pr-0">
+          <span class="ts-b5 tc-black-4 lh-b5">Sor v{{ version.toString() }}</span>
+        </v-col>
+        <v-col cols="4" class="pa-0 pt-1">
+          <LocaleSwitcher />
+        </v-col>
+      </v-row>
     </section>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed, reactive } from "vue";
-import { useRoute } from "vue-router";
-import MemberChip from "@/components/MemberChip/MemberChip.vue";
+import { computed, reactive } from "vue"
+import { useRoute } from "vue-router"
+import MemberChip from "@/components/MemberChip/MemberChip.vue"
+import LocaleSwitcher from "@/components/LocaleSwitcher/LocaleSwitcher.vue"
+import { version } from '../../../package.json'
 
 const routes = reactive([
-  { name: "Inicio", path: "/" },
-  { name: "Reservaciones", path: "/reservations" },
-  { name: "Punto de venta", path: "/entries-sale" },
-  { name: "Configuración", path: "/settings" },
-]);
+  { name: "Titles.Home", path: "/" },
+  { name: "Titles.Reservations", path: "/reservations" },
+  { name: "Titles.EntriesSale", path: "/entries-sale" },
+  { name: "Titles.Settings", path: "/settings" },
+])
 
-const route = useRoute();
-const currentRoute = computed(() => route.path);
+const route = useRoute()
+const currentRoute = computed(() => route.path)
 </script>
 
 <style lang="scss" scoped>

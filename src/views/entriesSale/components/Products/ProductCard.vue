@@ -37,59 +37,62 @@
 </template>
 
 <script setup lang="ts">
-import type { Product } from "@/types/Product.type";
-import { ref, computed, watch } from "vue";
-import { useOrder } from "@/composables/stores/useOrder";
+import type { Product } from "@/types/Product.type"
+import { ref, computed, watch } from "vue"
+import { useOrder } from "@/composables/stores/useOrder"
 
-const { product, color } = defineProps<{ product: Product; color: string }>();
+const { product, color } = defineProps<{ product: Product; color: string }>()
 
 const { order, remove, add } = useOrder()
 
 // watch if this has been removed from the order
 const removed = computed(() => {
-  const item = order.value.find((item) => item.item.id === product.id);
+  const item = order.value.find((item) => item.item.id === product.id)
   if (item) {
-    return false;
+    return false
   }
-  return true;
-});
+  return true
+})
 
 watch(removed, (value) => {
   if (value) {
-    quantity.value = 0;
+    quantity.value = 0
   }
-});
+})
 
 // Quantity
-const quantity = ref(0);
+const quantity = ref(0)
 
-const quantityAdded = computed(() => quantity.value > 0);
+const quantityAdded = computed(() => quantity.value > 0)
 
 const handleQuantity = (type: "add" | "subtract") => {
   if (type === "add") {
     add(product)
-    quantity.value += 1;
+    quantity.value += 1
   } else {
+    if (quantity.value === 0) {
+      return
+    }
     remove(product)
-    quantity.value -= 1;
+    quantity.value -= 1
   }
-};
+}
 
 const getColor = computed(() => {
-  return `bg-${color}-0`;
-});
+  return `bg-${color}-0`
+})
 
 const getPrice = computed(() => {
   // convert to decimal if it's an enteger
   if (Number.isInteger(product.price)) {
-    return `$${product.price}.00`;
+    return `$${product.price}.00`
   }
-  const regex = /\B(?=(\d{3})+(?!\d))/g;
+  const regex = /\B(?=(\d{3})+(?!\d))/g
   if (product.price.toString().split(".")[1]?.length === 1) {
-    return `$${product.price.toString().replace(regex, ",")}0`;
+    return `$${product.price.toString().replace(regex, ",")}0`
   }
-  return `$${product.price.toString().replace(regex, ",")}`;
-});
+  return `$${product.price.toString().replace(regex, ",")}`
+})
 </script>
 
 <style lang="scss" scoped>

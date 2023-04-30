@@ -117,20 +117,23 @@
 .lh-b4 { line-height: $line-height-b4; }
 .lh-b5 { line-height: $line-height-b5; }
 
+// LETTER SPACING
+.ls-0 { letter-spacing: 0; }
+
 // FONT FAMILY
 .ff-primary { font-family: $font-primary !important; }
 
 // Z-INDEX
 .z-1 { z-index: $z-index-1; }
 .z-20 { z-index: $z-index-20; }
+.z-30 { z-index: $z-index-30; }
+.z-40 { z-index: $z-index-40; }
 .z-50 { z-index: $z-index-50; }
+.z-60 { z-index: $z-index-60; }
+.z-70 { z-index: $z-index-70; }
 .z-80 { z-index: $z-index-80; }
+.z-90 { z-index: $z-index-90; }
 .z-100 { z-index: $z-index-100; }
-.z-1000 { z-index: $z-index-1000; }
-.z-2000 { z-index: $z-index-2000; }
-.z-3000 { z-index: $z-index-3000; }
-.z-4000 { z-index: $z-index-4000; }
-.z-5000 { z-index: $z-index-5000; }
 
 
 // TRANSITION
