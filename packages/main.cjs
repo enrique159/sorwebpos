@@ -1,16 +1,17 @@
 const path = require('path')
 const { app, BrowserWindow } = require('electron')
 
-//const isDev = process.env.NODE_ENV === "development"
-const isDev = true
+const dev = process.env.IS_DEV === 'true'
 
 function createWindow() {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1200,
+    height: 800,
+    minWidth: 800,
+    minHeight: 600,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js'),
+      preload: path.join(__dirname, 'preload.cjs'),
       nodeIntegration: true,
     },
   })
@@ -18,15 +19,28 @@ function createWindow() {
   // and load the index.html of the app.
   // win.loadFile("index.html");
   mainWindow.loadURL(
-    isDev
+    dev
       ? 'http://localhost:8080'
       : `file://${path.join(__dirname, '../dist/index.html')}`
   )
   // Open the DevTools.
-  if (isDev) {
+  if (dev) {
     mainWindow.webContents.openDevTools()
   }
 }
+
+
+// if (dev) {
+//   console.log('Development mode')
+//   app.whenReady()
+//     .then(() => import('electron-devtools-installer'))
+//     .then(async({default: installExtension}) => {
+//       installExtension('ljjemllljcmogpfapbkkighbhhppjdbg')
+//         .then((name) => console.log(`Added Extension: ${name}`))
+//         .catch((err) => console.log('An error occurred: ', err))
+//     })
+//     .catch((e) => console.error('Failed install extension:', e))
+// }
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
