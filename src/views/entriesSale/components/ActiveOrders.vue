@@ -1,24 +1,17 @@
 <template>
-  <div class="pt-2" style="height: 100%;">
+  <div class="pt-2 h-100">
     <div class="active-orders">
-      <div class="order"
-        v-for="order in activeOrders"
-        :key="order.id"
-      >
+      <div class="order" v-for="order in activeOrders" :key="order.id">
         <div class="table">
           <span>{{ order.table }}</span>
         </div>
         <div class="d-flex flex-column pl-2">
           <span class="tc-text ts-b3 tw-semi-bold">{{ order.waiter }}</span>
           <span class="tc-text-light ts-b4 tw-medium">
-            {{ order.items }} items <i class="ri-arrow-right-line mx-1"></i> Kitchen
+            {{ order.items }} items <i class="ri-arrow-right-line mx-1" /> Kitchen
           </span>
         </div>
-        <v-chip 
-          size="x-small" 
-          class="status"
-          :style="`background-color: ${getStatusColor(order.status)}`"
-        >
+        <v-chip size="x-small" class="status">
           {{ order.status.toLowerCase() }}
         </v-chip>
       </div>
@@ -27,7 +20,7 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, computed } from "vue";
+import { reactive } from "vue"
 import { OrderStatus } from '@/types/Order.type'
 
 const activeOrders = reactive([
@@ -51,21 +44,8 @@ const activeOrders = reactive([
     waiter: 'Jose H.',
     items: 6,
     status: OrderStatus.PROCESSING,
-  }
+  },
 ])
-
-const getStatusColor = (status: OrderStatus) => {
-  switch (status) {
-    case OrderStatus.PROCESSING:
-      return '$color-success'
-    case OrderStatus.PENDING:
-      return '$color-black-3'
-    case OrderStatus.DELIVERED:
-      return '$color-info'
-    default:
-      return '$color-black-3'
-  }
-}
 </script>
 
 <style lang="scss" scoped>
@@ -75,7 +55,7 @@ const getStatusColor = (status: OrderStatus) => {
   border-top: 1px solid $color-black-3;
   display: grid;
   grid-auto-flow: column;
-  grid-template-columns: repeat(autofill, minmax(200px, 1fr)); 
+  grid-template-columns: repeat(autofill, minmax(200px, 1fr));
 
   .order {
     display: flex;
