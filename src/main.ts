@@ -21,6 +21,11 @@ moment.locale('es')
 // Locales
 import i18n from '@/plugins/i18n'
 
+// Global
+declare global {
+  interface Window { electron: any; }
+}
+
 const vuetify = createVuetify({
   components,
   directives,

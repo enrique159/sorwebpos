@@ -27,7 +27,7 @@ module.exports = {
     semi: [2, "never"],
     "no-console": "warn",
     "no-debugger": "warn",
-    "vue/no-unused-vars": "error",
+    "vue/no-unused-vars": "warn",
     "no-var": "error",
     "no-trailing-spaces": "error",
     "vue/html-indent": "error",
@@ -46,7 +46,7 @@ module.exports = {
     }],
     "vue/max-attributes-per-line": [1, {
       "singleline": {
-        "max": 8,
+        "max": 6,
       },
       "multiline": {
         "max": 1,

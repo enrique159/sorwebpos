@@ -9,6 +9,7 @@
         icon
         size="small"
         class="bg-black-3 d-flex justify-center align-center"
+        @click="asyncMessage"
       >
         <i class="ri-edit-line tc-white-3 ts-b2 mt-n1" />
       </v-btn>
@@ -161,6 +162,18 @@ const selectedPayMethod = ref<PaymentMethod>('cash')
 
 const selectPaymentMethod = (method: PaymentMethod) => {
   selectedPayMethod.value = method
+}
+
+// Electron
+const asyncMessage = () => {
+  console.log("Sending message to server")
+  window.electron.asyncMessage('texto de ida', (event: any, message: string) => {
+    receiveMessage(message)
+  })
+}
+
+function receiveMessage(message: string) {
+  console.log("Received message from server: " + message)
 }
 </script>
 
