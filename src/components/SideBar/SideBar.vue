@@ -1,12 +1,9 @@
 <template>
   <div class="sidebar">
     <section class="upside-section">
-      <div class="logo mb-5 pl-3">
+      <div class="mb-5 pl-3">
         <router-link to="/">
-          <span class="ts-b2 tw-semi-bold">
-            <i class="ri-instance-fill tc-text-dark" />
-            Sor <b>POS</b>
-          </span>
+          <logo-sor class="logo" />
         </router-link>
       </div>
 
@@ -54,6 +51,7 @@ import { computed, reactive } from "vue"
 import { useRoute } from "vue-router"
 import MemberChip from "@/components/MemberChip/MemberChip.vue"
 import LocaleSwitcher from "@/components/LocaleSwitcher/LocaleSwitcher.vue"
+import LogoSor from "@/assets/custom/LogoSor.vue"
 import { version } from '../../../package.json'
 
 const routes = reactive([
@@ -100,6 +98,11 @@ const currentRoute = computed(() => route.path)
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+  }
+
+  .logo {
+    width: 100%;
+    max-width: 78px;
   }
 }
 </style>

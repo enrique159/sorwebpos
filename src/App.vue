@@ -12,11 +12,7 @@ import { Locales } from "@/locales/locales.d"
 
 const { locale } = useApp()
 
-if (locale.value === 'es-MX') {
-  i18n.global.locale = Locales.ES
-} else {
-  i18n.global.locale = Locales.EN
-}
+locale.value === 'es-MX' ? i18n.global.locale = Locales.ES : i18n.global.locale = Locales.EN
 
 useTitle('Sor', { titleTemplate: '%s | Software Restaurant' })
 </script>
