@@ -1,5 +1,5 @@
 import { storeToRefs } from "pinia"
-import { useOrderStore } from "@/store/orderStore"
+import { useOrderStore } from "@/stores/orderStore"
 import { Product } from "@/types/Product.type"
 
 export const useOrder = () => {
