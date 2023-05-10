@@ -28,4 +28,4 @@ enum ErrorCategory {
   USER = 4,
 }
 
-export default ErrorCategory;
+export default ErrorCategory

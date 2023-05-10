@@ -1,3 +1,4 @@
+/* eslint-disable */
 /**
  * Hypertext Transfer Protocol (HTTP) response status codes.
  * @see {@link https://datatracker.ietf.org/doc/html/rfc7231#section-6}
@@ -377,4 +378,4 @@ enum HttpStatusCode {
   NETWORK_AUTHENTICATION_REQUIRED = 511,
 }
 
-export default HttpStatusCode;
+export default HttpStatusCode

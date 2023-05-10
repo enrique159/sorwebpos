@@ -349,4 +349,4 @@ enum PostgresSQLErrorCodes {
   INDEX_CORRUPTED = 'XX002',
 }
 
-export default PostgresSQLErrorCodes;
+export default PostgresSQLErrorCodes

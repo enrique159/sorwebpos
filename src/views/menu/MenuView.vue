@@ -1,5 +1,5 @@
 <template>
-  <div class="entries-sale-view">
+  <div class="menu-view">
     <!-- BODY -->
     <section class="body-grid body">
       <v-container fluid class="mb-6">
@@ -32,9 +32,9 @@
 
 <script setup lang="ts">
 import OrderSide from './components/OrderSide.vue'
-import Categories from '@/views/entriesSale/components/Categories/Categories.vue'
-import Products from '@/views/entriesSale/components/Products/Products.vue'
-import ActiveOrders from '@/views/entriesSale/components/ActiveOrders.vue'
+import Categories from './components/Categories/Categories.vue'
+import Products from './components/Products/Products.vue'
+import ActiveOrders from './components/ActiveOrders.vue'
 import { useMetaTitle } from '@/composables/useMetaTitle'
 // @ts-ignore
 import { Splitpanes, Pane } from 'splitpanes'
@@ -44,7 +44,7 @@ setMeta('Titles.EntriesSale')
 </script>
 
 <style lang="scss" scoped>
-.entries-sale-view {
+.menu-view {
   width: 100%;
   height: 100%;
   display: grid;

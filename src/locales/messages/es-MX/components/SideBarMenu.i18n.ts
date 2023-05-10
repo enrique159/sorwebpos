@@ -1,11 +1,11 @@
 export default {
-  SideBarMenu: {
+  SideBar: {
     home: "Inicio",
-    bills: "Facturas",
-    clients: "Clientes",
-    products: "Productos",
-    sales: "Ventas",
-    coins: "Timbres",
-    settings: "Ajustes",
+    menu: "Menu",
+    tables: "Mesas",
+    orders: "Órdenes",
+    reservations: "Reservaciones",
+    dashboard: "Dashboard",
+    settings: "Configuración",
   },
 }

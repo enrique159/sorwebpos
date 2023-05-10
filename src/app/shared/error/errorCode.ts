@@ -1,5 +1,5 @@
-import ErrorCategory from '../enums/errorCategory.js';
-import { ErrorType } from './BaseError.js';
+import ErrorCategory from '../enums/errorCategory.js'
+import { ErrorType } from './BaseError.js'
 
 const ErrorCode: { [key: string]: ErrorType } = {
   ERR0000: {
@@ -204,7 +204,7 @@ const ErrorCode: { [key: string]: ErrorType } = {
     category: ErrorCategory.BUSINESS,
     msg: 'BOOKING_SENDING_MODULE',
     description: 'Incorrect date range',
-  }
-};
+  },
+}
 
-export default ErrorCode;
+export default ErrorCode

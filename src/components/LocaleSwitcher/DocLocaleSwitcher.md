@@ -9,7 +9,7 @@ This component is for changing the locales (languages) on the website. It change
 ### Props
 |Name            |Type     |Options                         |
 |----------------|---------|--------------------------------|
-|     |   | |
+|                |         |                                |
 
 ***
 ### Example use

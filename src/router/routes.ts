@@ -1,23 +1,35 @@
 // LAYOUTS
 import DefaultLayout from "@/layouts/DefaultLayout.vue"
 import LoginLayout from "@/layouts/LoginLayout.vue"
+
 // VIEWS
+/* LoginLayout */
 import LoginRoutes from "@/views/auth/routes"
+
+/* DefaultLayout */
 import HomeRoutes from "@/views/home/routes"
-import EntriesSaleRoutes from "@/views/entriesSale/routes"
+import MenuRoutes from "@/views/menu/routes"
+import OrdersRoutes from "@/views/orders/routes"
+import TablesRoutes from "@/views/tables/routes"
 import ReservationsRoutes from "@/views/reservations/routes"
+import DashboardRoutes from "@/views/dashboard/routes"
 import SettingsRoutes from "@/views/settings/routes"
 
+/* NotFoundView */
 import NotFoundView from "@/views/NotFoundView.vue"
 
 const routes = [
   {
     path: "/",
+    redirect: "/menu",
     component: DefaultLayout,
     children: [
       ...HomeRoutes,
-      ...EntriesSaleRoutes,
+      ...MenuRoutes,
+      ...OrdersRoutes,
+      ...TablesRoutes,
       ...ReservationsRoutes,
+      ...DashboardRoutes,
       ...SettingsRoutes,
     ],
   },

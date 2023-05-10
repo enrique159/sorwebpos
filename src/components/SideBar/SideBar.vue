@@ -55,10 +55,12 @@ import LogoSor from "@/assets/custom/LogoSor.vue"
 import { version } from '../../../package.json'
 
 const routes = reactive([
-  { name: "Titles.Home", path: "/" },
-  { name: "Titles.Reservations", path: "/reservations" },
-  { name: "Titles.EntriesSale", path: "/entries-sale" },
-  { name: "Titles.Settings", path: "/settings" },
+  { name: "SideBar.menu", path: "/menu"},
+  { name: "SideBar.tables", path: "/tables" },
+  { name: "SideBar.orders", path: "/orders" },
+  { name: "SideBar.reservations", path: "/reservations" },
+  { name: "SideBar.dashboard", path: "/dashboard" },
+  { name: "SideBar.settings", path: "/settings" },
 ])
 
 const route = useRoute()

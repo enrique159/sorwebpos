@@ -10,4 +10,4 @@ enum MongoDBErrorCodes {
   DUPLICATE_KEY_INDEX = 16460,
 }
 
-export default MongoDBErrorCodes;
+export default MongoDBErrorCodes
