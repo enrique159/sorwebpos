@@ -26,6 +26,10 @@ declare global {
   interface Window { electron: any; }
 }
 
+// Toastify
+import Vue3Toastify from 'vue3-toastify'
+import 'vue3-toastify/dist/index.css'
+
 const vuetify = createVuetify({
   components,
   directives,
@@ -35,6 +39,7 @@ const pinia = createPinia()
 const app = createApp(App)
 
 app.use(VueGates as any)
+app.use(Vue3Toastify)
 app.use(pinia)
 app.use(router)
 app.use(vuetify)

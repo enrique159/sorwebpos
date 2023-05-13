@@ -60,6 +60,7 @@ const routes = reactive([
   { name: "SideBar.orders", path: "/orders" },
   { name: "SideBar.reservations", path: "/reservations" },
   { name: "SideBar.dashboard", path: "/dashboard" },
+  { name: "SideBar.restaurant", path: "/restaurants" },
   { name: "SideBar.settings", path: "/settings" },
 ])
 

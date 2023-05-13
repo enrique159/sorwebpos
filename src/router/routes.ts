@@ -12,6 +12,7 @@ import OrdersRoutes from "@/views/orders/routes"
 import TablesRoutes from "@/views/tables/routes"
 import ReservationsRoutes from "@/views/reservations/routes"
 import DashboardRoutes from "@/views/dashboard/routes"
+import RestaurantsRoutes from "@/views/restaurants/routes"
 import SettingsRoutes from "@/views/settings/routes"
 
 /* NotFoundView */
@@ -28,6 +29,7 @@ const routes = [
       ...TablesRoutes,
       ...ReservationsRoutes,
       ...DashboardRoutes,
+      ...RestaurantsRoutes,
       ...SettingsRoutes,
     ],
   },

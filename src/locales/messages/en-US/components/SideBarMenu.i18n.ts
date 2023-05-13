@@ -6,6 +6,8 @@ export default {
     orders: "Orders",
     reservations: "Reservations",
     dashboard: "Dashboard",
+    restaurants: "My Restaurant",
+    restaurant: "My Restaurant",
     settings: "Settings",
   },
 }
