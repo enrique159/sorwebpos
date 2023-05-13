@@ -1,15 +1,15 @@
-import type { UsersRepositoryModel } from "../domain/services/UsersRepositoryModel";
-import type { User, Users } from "../domain/interfaces";
-import type { Response } from "@/app/network/domain/interfaces";
-import type { IPayload } from "@/app/network/domain/interfaces";
+import type { UsersRepositoryModel } from "../domain/services/UsersRepositoryModel"
+import type { User, Users } from "../domain/interfaces"
+import type { Response } from "@/app/network/domain/interfaces"
+import type { IPayload } from "@/app/network/domain/interfaces"
 
-import Http from "@/app/network/Http";
+import Http from "@/app/network/Http"
 
 export class UsersRepository implements UsersRepositoryModel {
-  private http: Http;
+  private http: Http
 
   constructor() {
-    this.http = new Http();
+    this.http = new Http()
   }
 
   getUsers(): Promise<Response<Users>> {

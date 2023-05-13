@@ -9,7 +9,7 @@
     "dev": "vite --host",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
-    "electron": "wait-on tcp:8080 && cross-env IS_DEV=true electron .",
+    "electron": "wait-on tcp:8080 && cross-env electron .",
     "electron:pack": "electron-builder --dir",
     "electron:dev": "concurrently -k \"cross-env BROWSER=none npm run dev\" \"npm run electron\"",
     "electron:builder": "electron-builder",

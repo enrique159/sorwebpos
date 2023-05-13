@@ -1,17 +1,17 @@
 const { app, BrowserWindow, ipcMain } = require('electron')
 const path = require('path')
 const AsyncMessage = require('./app/Example.cjs')
+const env = require('../env.json')
 
-
-const dev = process.env.IS_DEV === 'true'
+const dev = env.NODE_ENV === 'development'
 
 function createWindow() {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 1200,
     height: 800,
-    minWidth: 800,
-    minHeight: 600,
+    minWidth: 940,
+    minHeight: 620,
     webPreferences: {
       preload: path.join(__dirname, 'preload.cjs'),
       contextIsolation: true,
@@ -34,7 +34,7 @@ function createWindow() {
 
 
 if (dev) {
-  console.log('Development mode')
+  console.log('[electron]: Development mode')
   app.whenReady()
     .then(() => require('electron-devtools-installer'))
     .then(async({default: installExtension}) => {
@@ -42,10 +42,10 @@ if (dev) {
         id: 'ljjemllljcmogpfapbkkighbhhppjdbg',
         electron: '>=1.2.1',
       })
-        .then((name) => console.log(`Added Extension: ${name}`))
-        .catch((err) => console.log('An error occurred: ', err))
+        .then((name) => console.log(`[electron]: Added Extension: ${name}`))
+        .catch((err) => console.log('[electron]: An error occurred: ', err))
     })
-    .catch((e) => console.error('Failed install extension:', e))
+    .catch((e) => console.error('[electron] Failed install extension:', e))
 }
 
 // This method will be called when Electron has finished

@@ -7,7 +7,6 @@ import LoginLayout from "@/layouts/LoginLayout.vue"
 import LoginRoutes from "@/views/auth/routes"
 
 /* DefaultLayout */
-import HomeRoutes from "@/views/home/routes"
 import MenuRoutes from "@/views/menu/routes"
 import OrdersRoutes from "@/views/orders/routes"
 import TablesRoutes from "@/views/tables/routes"
@@ -24,7 +23,6 @@ const routes = [
     redirect: "/menu",
     component: DefaultLayout,
     children: [
-      ...HomeRoutes,
       ...MenuRoutes,
       ...OrdersRoutes,
       ...TablesRoutes,
