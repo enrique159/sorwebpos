@@ -7,6 +7,7 @@ import Regions from "./pages/Regions.i18n"
 import Login from "./pages/Login.i18n"
 import Home from "./pages/Home.i18n"
 import Products from "./pages/Products.i18n"
+import SignIn from "./pages/SignIn.i18n"
 
 // shared
 import General from "./shared/General.i18n"
@@ -23,9 +24,10 @@ export default {
   ...Login,
   ...Home,
   ...Products,
-  
-  // shared 
+  ...SignIn,
+
+  // shared
   ...General,
   ...Titles,
-  ...Errors
+  ...Errors,
 }

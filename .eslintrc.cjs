@@ -34,6 +34,7 @@ module.exports = {
     "vue/attribute-hyphenation": "error",
     "space-before-function-paren": ["error", "never"],
     "vue/mustache-interpolation-spacing": ["error", "always"],
+    "vue/no-setup-props-destructure": "warn",
     //quotes: [2, "double", { avoidEscape: true, allowTemplateLiterals: true }],
     quotes: "off",
     "no-unused-vars": "warn",

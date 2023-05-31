@@ -9,5 +9,8 @@ export default {
     myAccount: "Mi cuenta",
     spanish: "Español",
     english: "Inglés",
+    terms: "Términos y Condiciones",
+    policyPrivacy: "Política de Privacidad",
+    support: "Ayuda y soporte",
   },
 }

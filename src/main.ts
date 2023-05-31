@@ -6,6 +6,10 @@ import router from './router'
 import './styles/styles.scss'
 import 'remixicon/fonts/remixicon.css'
 import 'splitpanes/dist/splitpanes.css'
+// Global Components
+import InputLabel from '@/components/InputLabel/InputLabel.vue'
+import SpanLink from '@/components/Links/SpanLink.vue'
+import LocaleSwitcher from '@/components/LocaleSwitcher/LocaleSwitcher.vue'
 
 // Vuetify
 import 'vuetify/styles'
@@ -37,6 +41,11 @@ const vuetify = createVuetify({
 
 const pinia = createPinia()
 const app = createApp(App)
+
+// Global Components
+app.component('InputLabel', InputLabel)
+app.component('SpanLink', SpanLink)
+app.component('LocaleSwitcher', LocaleSwitcher)
 
 app.use(VueGates as any)
 app.use(Vue3Toastify)
