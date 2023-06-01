@@ -75,131 +75,65 @@
   }
 }
 
-// // TIERED MENU PRIME VUE
-// .tiered-menu-custom {
-//   background-color: $color-white-0 !important;
-//   box-shadow: $box-shadow-2 !important;
-//   border-radius: $border-radius-2 !important;
-// }
 
-// // BUTTON PRIME VUE
-// .button-outline-custom {
-//   @include button-base;
-//   background-color: transparent;
-//   border: 2px solid $color-white-4;
-//   color: $color-white-4;
-//   &:hover {
-//     background-color: transparent !important;
-//     border: 2px solid $color-blue-1 !important;
-//     color: $color-blue-1 !important;
-//   }
-// }
+/*
+  ********* V_SELECT *********
+*/
+.input-select {
+  .v-field--variant-solo {
+    background: $color-black-3;
+    box-shadow: none;
+    color: $color-text;
+    border-radius: 8px;
+    border: 1px solid $color-black-3;
+  }
+  .v-field__input {
+    min-height: 2rem;
+  }
+  .v-field__append-inner {
+    padding-top: 16px;
+  }
 
-// .button-custom {
-//   @include button-base;
-//   background-color: $color-blue-0;
-//   border: 2px solid $color-blue-0;
-//   color: $color-white-0;
-//   &:hover {
-//     background-color: $color-blue-1 !important;
-//     border: 2px solid $color-blue-1 !important;
-//     color: $color-white-0 !important;
-//   }
-// }
+  .v-select__selection-text {
+    font-weight: $font-bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 
-// // AVATAR PRIME VUE
-// .avatar-outline-custom {
-//   background-color: $color-white-4;
-//   border: 2px solid $color-white-1;
-//   color: $color-white-0;
-//   line-height: 10px;
-//   cursor: pointer;
-//   &:hover {
-//     border: 2px solid $color-cian-0;
-//   }
-// }
+  .v-field--error:not(.v-field--disabled) {
+    border: 1px solid $color-error;
+    .v-field__append-inner i {
+      color: $color-error !important;
+    }
+  }
+  .v-messages {
+    color: $color-error !important;
+  }
+}
 
-// // INPUT PRIME VUE
-// .input-custom {
-//   @include input-base;
-// }
+.input-select-light {
+  .v-field--variant-solo {
+    background: $color-white-1;
+    box-shadow: none;
+    color: $color-black-3;
+    border-radius: 8px;
+    border: 1px solid $color-white-1;
+  }
+}
 
-// .password-custom {
-//   @include input-base; 
-//   .p-password-input {
-//     border: none;
-//     background-color: $color-white-0;
-//     border-radius: 7px;
-//     width: 100%;
-//   }
-// }
 
-// // SIDE BAR PRIME VUE
-// .p-sidebar-mask {
-//   z-index: 1100;
-// }
-// .side-bar-menu-sm {
-//   background-color: $color-white-0;
-//   z-index: 1101;
-//   .p-sidebar-content {
-//     height: 100%;
-//     padding: 2rem 5rem 2rem 2rem;
-//     position: relative;
-//   }
-
-//   &__logo {
-//     display: flex;
-//     justify-content: flex-start;
-//     align-items: center;
-//     width: fit-content;
-//     &:hover {
-//       transform: scale(1.04);
-//     }
-//   }
-
-//   &__menu {
-//     margin-top: 4rem;
-//     ul {
-//       list-style: none;
-//       padding: 0;
-//       margin: 0;
-
-//       li {
-//         margin-bottom: 0.8rem;
-
-//         a {
-//           display: flex;
-//           align-items: center;
-//           column-gap: 1rem;
-//           text-decoration: none;
-//           color: $color-text;
-//           font-size: $b3-size;
-//           font-weight: $font-medium;
-//           transition: $transition-normal;
-//           padding: 0.6rem 0.8rem;
-//           border-radius: $border-radius-4;
-//           cursor: default;
-
-//           &:hover {
-//             background-color: $color-white-2;
-//           }
-
-//           &.active {
-//             background-color: $color-blue-0;
-//             color: $color-white-0;
-//           }
-
-//           .icon {
-//             width: 24px;
-//           }
-//         }
-//       }
-//     }
-//   }
-
-//   .locale-switcher-comp {
-//     position: absolute;
-//     bottom: 2rem;
-//     left: 3rem;
-//   }
-// }
+/*
+  ********* V_MENU *********
+*/
+.v-menu {
+  .v-overlay__content {
+    border-radius: 8px !important;
+  }
+  .v-list {
+    background: $color-black-2 !important;
+    .v-list-item--density-default:not(.v-list-item--nav).v-list-item--one-line {
+      color: $color-text !important;
+    }
+  }
+}

@@ -5,6 +5,7 @@ const TablesRoutes = [
     path: '/tables',
     name: 'Tables',
     component: TablesView,
+    meta: { requiresAuth: true },
   },
 ]
 

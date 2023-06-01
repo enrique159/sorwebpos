@@ -5,6 +5,7 @@ const OrdersRoutes = [
     path: '/orders',
     name: 'Orders',
     component: OrdersView,
+    meta: { requiresAuth: true },
   },
 ]
 

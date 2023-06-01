@@ -9,7 +9,9 @@
 
     <v-form v-model="valid" class="signin-form">
       <h5>{{ $t("SignIn.title") }}</h5>
-      <p class="mb-3">{{ $t("SignIn.description") }}</p>
+      <p class="mb-3">
+        {{ $t("SignIn.description") }}
+      </p>
       <v-container class="px-0">
         <v-row>
           <v-col cols="12" class="py-0">

@@ -5,9 +5,7 @@ export const MenuRoutes = [
     path: "/menu",
     name: "Menu",
     component: MenuView,
-    meta: {
-      requiresAuth: true,
-    },
+    meta: { requiresAuth: true },
   },
 ]
 

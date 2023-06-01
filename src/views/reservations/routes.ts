@@ -5,6 +5,7 @@ const ReservationsRoutes = [
     path: "/reservations",
     name: "Reservations",
     component: ReservationsView,
+    meta: { requiresAuth: true },
   },
 ]
 

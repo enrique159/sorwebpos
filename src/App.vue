@@ -20,7 +20,7 @@ useTitle('Sor', { titleTemplate: '%s | Software Restaurant' })
 <style lang="scss">
 #main-app {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background: $color-background !important;
   color: $color-text !important;
 }

@@ -1,10 +1,21 @@
-import RestaurantsView from './RestaurantsView.vue'
+import RestaurantsModule from './RestaurantsModule.vue'
+// Views
+import GeneralInfo from './views/GeneralInfoView.vue'
 
 const RestaurantsRoutes = [
   {
     path: '/restaurants',
     name: 'Restaurants',
-    component: RestaurantsView,
+    redirect: '/restaurants/info',
+    component: RestaurantsModule,
+    meta: { requiresAuth: true },
+    children: [
+      {
+        path: '/restaurants/info',
+        name: 'GeneralInfo',
+        component: GeneralInfo,
+      },
+    ],
   },
 ]
 
