@@ -43,9 +43,9 @@
       <section class="menu-settings">
         <!-- TITLE SECTION -->
         <div class="d-flex align-center">
-          <i class="ri-store-2-fill tc-white-4" />
+          <i class="ri-book-open-fill tc-white-4" />
           <h6 class="ts-b3 tc-white-4 tw-medium pl-2">
-            {{ $t('Restaurants.restaurant') }}
+            {{ $t('Restaurants.menu') }}
           </h6>
         </div>
         <v-divider class="mb-2" />
@@ -97,7 +97,8 @@ const restaurantSettings = reactive([
 ])
 // MENU SETTINGS
 const menuSettings = reactive([
-  { name: 'Restaurants.Routes.menuAndProducts', path: '/restaurants/menu-products' },
+  { name: 'Restaurants.Routes.menus', path: '/restaurants/menus'},
+  { name: 'Restaurants.Routes.categoriesAndProducts', path: '/restaurants/categories-products' },
   { name: 'Restaurants.Routes.discounts', path: '/restaurants/discounts' },
   { name: 'Restaurants.Routes.spacesAndTables', path: '/restaurants/spaces-tables' },
 ])
