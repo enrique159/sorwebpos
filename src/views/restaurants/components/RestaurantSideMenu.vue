@@ -94,6 +94,7 @@ const restaurantSettings = reactive([
   { name: 'Restaurants.Routes.generalInfo', path: '/restaurants/info' },
   { name: 'Restaurants.Routes.restaurantData', path: '/restaurants/data' },
   { name: 'Restaurants.Routes.users', path: '/restaurants/users' },
+  { name: 'Restaurants.Routes.salesPoints', path: '/restaurants/sales-points' },
 ])
 // MENU SETTINGS
 const menuSettings = reactive([
@@ -109,7 +110,8 @@ const currentRoute = computed(() => route.path)
 
 <style lang="scss" scoped>
 .restaurant-side-menu {
-  width: 280px;
+  width: 240px;
+  min-width: 240px;
   height: 100%;
   padding: 2rem 0;
 

@@ -47,6 +47,10 @@ export const useUser = () => {
   const isAuth = () => {
     return userStore.isAuth()
   }
+  // GET ME: Obtiene los datos del usuario
+  const getMe = () => {
+    return userStore.getMe()
+  }
 
   return {
     // Properties
@@ -60,5 +64,6 @@ export const useUser = () => {
     // Actions
     signIn,
     isAuth,
+    getMe,
   }
 }

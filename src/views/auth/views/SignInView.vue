@@ -22,6 +22,7 @@
               :rules="emailRules"
               :placeholder="$t('SignIn.emailPlaceholder')"
               variant="solo"
+              type="email"
               required
             />
           </v-col>
@@ -104,7 +105,7 @@ const passwordRules = ref([
   },
   (value: any) => {
     if (value.length >= 8) return true
-    return t('SignIn.emailErrors.minLenght')
+    return t('SignIn.passwordErrors.minLenght')
   },
 ])
 

@@ -4,6 +4,6 @@ export default {
       welcomeLabel: 'Products',
       newCategory: 'New Category',
       newProduct: 'New Product',
-    }
-  }
+    },
+  },
 }

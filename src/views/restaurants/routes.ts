@@ -3,6 +3,7 @@ import RestaurantsModule from './RestaurantsModule.vue'
 import GeneralInfo from './views/GeneralInfoView.vue'
 import RestaurantData from './views/RestaurantDataView.vue'
 import UsersPermissions from './views/UsersPermissionsView.vue'
+import SalesPoints from './views/SalesPointsView.vue'
 import Menus from './views/MenusView.vue'
 import CategoriesProducts from './views/CategoriesProductsView.vue'
 import DiscountsCoupons from './views/DiscountsCouponsView.vue'
@@ -30,6 +31,11 @@ const RestaurantsRoutes = [
         path: '/restaurants/users',
         name: 'UsersPermissions',
         component: UsersPermissions,
+      },
+      {
+        path: '/restaurants/sales-points',
+        name: 'SalesPoints',
+        component: SalesPoints,
       },
       {
         path: '/restaurants/menus',

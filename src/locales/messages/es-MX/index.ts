@@ -9,6 +9,7 @@ import Home from "./pages/Home.i18n"
 import Products from "./pages/Products.i18n"
 import SignIn from "./pages/SignIn.i18n"
 import Restaurants from "./pages/Restaurants.i18n"
+import GeneralInfo from "./pages/GeneralInfo.i18n"
 
 // shared
 import General from "./shared/General.i18n"
@@ -27,6 +28,7 @@ export default {
   ...Products,
   ...SignIn,
   ...Restaurants,
+  ...GeneralInfo,
 
   // Shared
   ...General,

@@ -7,6 +7,7 @@ import Http from "@/app/network/Http"
 
 export class UsersRepository implements UsersRepositoryModel {
   private http: Http
+  private headers = { Authorization: `Bearer ${window.localStorage.getItem('token')}` }
 
   constructor() {
     this.http = new Http()
@@ -18,6 +19,10 @@ export class UsersRepository implements UsersRepositoryModel {
 
   getById(id: number): Promise<Response<User>> {
     return this.http.get(`/users/${id}`)
+  }
+
+  async getMe(): Promise<Response<User>> {
+    return await this.http.get<null, User>("/users/me", { headers: this.headers })
   }
 
   create(payload: IPayload<User>): Promise<Response<User>> {

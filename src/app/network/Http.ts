@@ -36,7 +36,6 @@ export default class Http implements IHttp {
         params: payload?.params,
         headers: this.requestHeaders(payload?.headers ?? {}),
         data: payload?.data ?? null,
-        withCredentials: payload?.auth ?? true,
       })
 
       return response.data
@@ -62,7 +61,6 @@ export default class Http implements IHttp {
         params: payload?.params,
         headers: this.requestHeaders(payload?.headers ?? {}),
         data: payload?.data ?? null,
-        withCredentials: payload?.auth ?? true,
       })
 
       return response.data
@@ -88,7 +86,6 @@ export default class Http implements IHttp {
         params: payload?.params,
         headers: this.requestHeaders(payload?.headers ?? {}),
         data: payload?.data ?? null,
-        withCredentials: payload?.auth ?? true,
       })
 
       return response.data
@@ -114,7 +111,6 @@ export default class Http implements IHttp {
         params: payload?.params,
         headers: this.requestHeaders(payload?.headers ?? {}),
         data: payload?.data ?? null,
-        withCredentials: payload?.auth ?? true,
       })
 
       return response.data
@@ -140,7 +136,6 @@ export default class Http implements IHttp {
         params: payload?.params,
         headers: this.requestHeaders(payload?.headers ?? {}),
         data: payload?.data ?? null,
-        withCredentials: payload?.auth ?? true,
       })
 
       return response.data

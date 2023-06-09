@@ -13,7 +13,7 @@ export default {
       error: {
         notFound: "We can't find an account with this email.",
         invalidCredentials: "The email or password you entered is incorrect.",
-      }
-    }
-  }
+      },
+    },
+  },
 }

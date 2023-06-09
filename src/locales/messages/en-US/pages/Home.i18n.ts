@@ -5,6 +5,6 @@ export default {
       newBill: 'New Bill',
       newSale: 'New Sale',
       newClient: 'New Client',
-    }
-  }
+    },
+  },
 }

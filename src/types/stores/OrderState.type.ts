@@ -1,4 +1,4 @@
-import { Product } from "./Product.type";
+import { Product } from "../Product.type"
 
 export type OrderState = {
   order: Array<OrderItem>;

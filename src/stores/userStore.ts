@@ -6,6 +6,8 @@ import { AuthRepository } from "@/app/auth/repository/AuthRepository"
 import { Auth } from "@/app/auth/domain/interfaces"
 import { IsAuthUseCase } from "@/app/auth/useCases/IsAuth.useCase"
 import { useLocalStorage } from "@vueuse/core"
+import { UsersRepository } from "@/app/modules/Users/repository/UsersRepository"
+import GetMeUseCase from "@/app/modules/Users/useCases/GetMe.useCase"
 
 export const useUserStore = defineStore({
   id: 'user',
@@ -74,6 +76,21 @@ export const useUserStore = defineStore({
       })
 
       return action
+    },
+
+    // GET ME
+    getMe() {
+      const usersRepository = new UsersRepository()
+      const getMeUseCase = new GetMeUseCase(usersRepository)
+      const action = getMeUseCase.execute()
+      action.then((response) => {
+        this.user = response.data
+        return response
+      }).catch((error) => {
+        //eslint-disable-next-line
+        console.log('Error ❗️:', error.errors)
+        return error
+      })
     },
   },
 })

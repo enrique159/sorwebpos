@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import type { OrderState } from '@/types/OrderState.type'
+import type { OrderState } from '@/types/stores/OrderState.type'
 import { Product } from '@/types/Product.type'
 
 export const useOrderStore = defineStore('order', {
